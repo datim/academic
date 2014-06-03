@@ -2,8 +2,11 @@
 #include <string.h>
 #include <iostream>
 
+// mergesort algorithm.  Algorithm is sorted in-place.
+
 void printArray(int *array, const int low, const int high) 
 {
+	// helper method to print out an array
 
 	std::cout << "[ ";
     for (int x = low; x < high; x++)
@@ -15,6 +18,10 @@ void printArray(int *array, const int low, const int high)
 
 void merge(int theArray[], const int low, const int mid, const int high)
 {
+	// perform a merge on two sections of an array:
+	//   sub array one: low-mid
+	//   sub array two: mid-high
+
 	std::cout << "merge array, low: " << low << ", mid: " << mid << ", high: " << high << " ";
 	printArray(theArray, low, high);
 
@@ -73,13 +80,18 @@ void merge(int theArray[], const int low, const int mid, const int high)
 		theArray[i] = tempArray[tempIndex++];
 	}
 
-
-	// delet ethe temporary array
+	// delet the temporary array
 	delete tempArray;
 }
 
 void mergeSort(int theArray[], const int low, const int high)
 {
+	// recursively call itself on smaller and smaller sub-sections.
+	// each subsection is one half of the incoming array.
+	// when the array reaches a length of one return.
+	// after recursively calling each sub section, merge them together
+	// by calling the 'merge' method
+
 	std::cout << "MergeSort: low: " << low << ", high: " << high << " ";
 	printArray(theArray, low, high);
 

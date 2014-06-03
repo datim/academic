@@ -1,7 +1,7 @@
 
 
 all:
-	g++ main.cpp -o mergesort.out
+	g++ mergesort.cpp -o mergesort.out
 
 debug:
-	g++ -g main.cpp -o mergesort.out
+	g++ -g mergesort.cpp -o mergesort.out
