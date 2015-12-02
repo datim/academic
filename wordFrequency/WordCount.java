@@ -67,16 +67,6 @@ public class WordCount {
 	/* constructor */
 	public WordCount() {}
 
-	public static void main(String[] args) {
-
-		WordCount counter = new WordCount();
-
-		
-		String sentence = "One Two Three Four, Show Me Four More Four You.";
-		int count = 9;
-		counter.countWords(sentence, count);
-	}
-	
 	/**
 	 * Count the frequency of words in a string.
 	 * @param sentence: The document, represented as a string. 
