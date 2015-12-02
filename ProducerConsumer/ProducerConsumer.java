@@ -25,7 +25,7 @@ import java.util.StringTokenizer;
  * frequency of words that appear in a string and return a list 
  * of the most frequent words.
  */
-public class WordCount {
+public class ProducerConsumer {
 	
 	/**
 	 * Helper class defining a comparator of two Nodes classes, for use 
@@ -65,16 +65,25 @@ public class WordCount {
 	}
 	
 	/* constructor */
-	public WordCount() {}
+	public ProducerConsumer() {}
 
 	public static void main(String[] args) {
 
-		WordCount counter = new WordCount();
+		ProducerConsumer counter = new ProducerConsumer();
 
 		
 		String sentence = "One Two Three Four, Show Me Four More Four You.";
 		int count = 9;
-		counter.countWords(sentence, count);
+		
+		System.out.println("Input String :'" + sentence + "', count:" + count);
+		String[] words = counter.countWords(sentence, count);
+		
+		String output = "";
+		for (String word: words) {
+			output += word + " ";
+		}
+		
+		System.out.println("Ordered words are" + output);
 	}
 	
 	/**
