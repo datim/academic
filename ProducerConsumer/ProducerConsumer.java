@@ -83,7 +83,7 @@ public class ProducerConsumer {
 			output += word + " ";
 		}
 		
-		System.out.println("Ordered words are" + output);
+		System.out.println("Ordered words are " + output);
 	}
 	
 	/**
