@@ -1,3 +1,4 @@
+package wordFrequency;
 
 import java.util.ArrayList;
 import java.util.Collections;
