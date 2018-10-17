@@ -2,88 +2,64 @@
 # 
 # Implement a basic merge-sort algorithm
 #
-import pdb
 
+def startMergeSort(array):
+  """ Start merge sort """
+  mergeSort(array, 0, len(array))
 
+def mergeSort(array, start, end):
+  """ recursively sort and merge array """
+  if (start < end):
+    middle = (start + end) / 2
+    mergeSort(array, start, middle)
+    mergeSort(array, middle+1, end)
+    merge(array, start, middle, end)
 
-def mergeSortArray(array):
-    """ Call Merge Sort on the provided array """
-    print 'merg sort %s' % array
-    high = len(array) - 1
-    mergeSort(array, 0, high)
-    return
+def merge(array, start, middle, end):
+  """ Merge two halves of provided array """
 
-def mergeSort(array, low, high):
-    """ Recursively merge sort an array
-        array: array to sort
-        low: lower bounds of the array index to sort
-        high: higher bounds of the array index to sort
-    """
-    if (low < high):
-        middle = (high + low) / 2
+  # make a copy of the right side
+  left = array[start:middle+1]
 
-        mergeSort(array, low, middle)
-        mergeSort(array,middle+1, high)
-        merge(array, low, middle, high)
+  # make a copy of the right side
+  right = array[middle+1:end+1]
 
-    return
+  iLeft = 0
+  iRight = 0
+  index = start
 
-# merge two sorted arrays
-def merge(array, low, middle, high):
-    """ Combine sorted arrays: array[low - middle] and array [middle+1 - high]
-        array: array to sort
-        low: lower bounds of the array index to sort
-        high: higher bounds of the array index to sort
-    """
-    sortedArray = []
+  # iterate through both arrays, copying the smaller number back to the array
+  while (iLeft < len(left) and iRight < len(right)):
+    if (left[iLeft] < right[iRight]):
+      array[index] = left[iLeft]
+      iLeft += 1
+    else:
+      array[index] = right[iRight]
+      iRight += 1
 
-    leftIndex = 0
-    rightIndex = 0
-    index = low
+    index += 1
 
-    # copy left and right portions of the array into their own lists
-    left = array[low:middle+1]
-    leftLen = len(left)
-    right = array[middle+1:high+1]
-    rightLen = len(right)
+  # copy remaining left values
+  while iLeft < len(left):
+      array[index] = left[iLeft]
+      iLeft += 1
+      index += 1
 
-    # copy both sorted halfs back into the array
-    while ((leftIndex < leftLen) or (rightIndex < rightLen)):
+  # copy remaining right values
+  while iRight < len(right):
+      array[index] = right[iRight]
+      iRight += 1
+      index += 1
 
-        candidateNum = None
-
-        if (leftIndex == leftLen):
-            # array 1 is complete, just add array 2
-            array[index] = right[rightIndex]
-            rightIndex += 1
-
-        elif (rightIndex == rightLen):
-          # array 2 is complete, just add array 1
-            array[index] = left[leftIndex]
-            leftIndex += 1
-
-        elif left[leftIndex] < right[rightIndex]:
-            # both arrays have elements left. Array 1 is smaller
-            array[index] = left[leftIndex]
-            leftIndex += 1
-
-        else:
-            # both arrays have elements left. Array 2 is smaller
-            array[index] = right[rightIndex]
-            rightIndex += 1
-
-        index += 1
-
-    return
 
 def main():
-    toSort = [ 1, 590, 87, 4 ]
-    mergeSortArray(toSort)
-    print 'Sorted algorithm is %s' % toSort
+  array = [1, 50, 12, 39, 18, 7, 6]
+  startMergeSort(array)
+  print 'sorted array is %s' % array
 
-    toSort2 = [ 5, 12, 57, 99, 590, 80, 12, 3 ]
-    mergeSortArray(toSort2)
-    print 'Sorted algorithm is %s' % toSort2
+  array2 = [ 5, 12, 57, 99, 590, 80, 12, 3 ]
+  startMergeSort(array2)
+  print 'sorted array is %s' % array2
 
 if __name__ == '__main__':
     main()

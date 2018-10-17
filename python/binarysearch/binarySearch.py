@@ -1,4 +1,8 @@
 
+#/bin/python
+# 
+# Implement a basic binary search algorithm
+#
 
 def binarySearch(array, low, high, value):
     ''' Search for an array using a recursive binary search '''
