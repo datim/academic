@@ -25,9 +25,7 @@ def binarySearch(array, low, high, value):
 def startSearch(array, x):
     ''' Search for value x in array using a binary search '''
 
-    size = len(array)
-
-    if (binarySearch(array, 0, size - 1, x) != -1):
+    if (binarySearch(array, 0, len(array) - 1, x) != -1):
         print 'value %d found' % x
     else:
         print 'value %d not found' % x
