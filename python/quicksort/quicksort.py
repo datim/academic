@@ -49,10 +49,9 @@ def quick_sort_start(array):
   return array
 
 def main():
-  array_to_sort = [59, 1, 36, 12, 88, 10, 19]
-  print quick_sort_start(array_to_sort)
-  array_to_sort2 = [18, 57, 9, 5000, 301, 12, 18]
-  print quick_sort_start(array_to_sort2)
+  print quick_sort_start([59, 1, 36, 12, 88, 10, 19])
+  print quick_sort_start([18, 57, 9, 5000, 301, 12, 18])
+  print quick_sort_start([508, 57, 99, 37, 600131, 2, 9])
 
 if __name__ == '__main__':
     main()
